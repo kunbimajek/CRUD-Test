@@ -1,0 +1,106 @@
+
+.centered{
+	margin: auto !important;
+}
+
+.mt-50{
+	margin-top: 50px !important;
+}
+.mb-30{
+	margin-bottom: 30px !important;
+}
+.mb-20{
+	margin-bottom: 20px !important;
+}
+
+
+.navbar{
+background-color: #172121 !important;	
+}
+
+.navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > 
+.nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
+	background-color: transparent !important;
+	margin-right: 15px;
+
+}
+.navbar .nav-link{
+	text-transform: uppercase;
+}
+
+.jumbotron{
+	background: #172121 !important;
+	background-size: cover;
+	background-position: center;
+	height: 100%;
+	width: 100%;
+	color: white !important;
+	margin-bottom: 0px !important;
+	border-radius: 0px !important;
+}
+.jumbotron .h1{
+	padding-top: 120px;
+	color: white !important;
+}
+.jumbotron .sub-text{
+	font-size: 20px !important;
+	color: #E5E5E5 !important;
+	padding-bottom: 50px;
+	letter-spacing: 1px;
+}
+.jumbotron .createBtn{
+	color: white;
+	text-decoration: none;
+    background-color: #4AC79D !important;
+    background: -webkit-linear-gradient(top, #4AC79D 0%, #29B088 100%);
+    background: -moz-linear-gradient(top, #4AC79D 0%, #29B088 100%);
+    background: -o-linear-gradient(top, #4AC79D 0%, #29B088 100%);
+    background: linear-gradient(to bottom, #4AC79D 0%, #29B088 100%);
+    letter-spacing: 1px;
+	border: 1px solid #4AC79D ;
+	padding: 12px 23px;
+	outline: none !important;
+}
+.jumbotron .viewBtn{
+	color: white;
+	text-decoration: none;
+    background-color: #363555 !important;
+    letter-spacing: 1px;
+	border: 1px solid #363555 ;
+	padding: 12px 23px;
+	outline: none !important;
+}
+
+.site-main .createBtn2{
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+    background-color: #4AC79D !important;
+    background: -webkit-linear-gradient(top, #4AC79D 0%, #29B088 100%);
+    background: -moz-linear-gradient(top, #4AC79D 0%, #29B088 100%);
+    background: -o-linear-gradient(top, #4AC79D 0%, #29B088 100%);
+    background: linear-gradient(to bottom, #4AC79D 0%, #29B088 100%);
+    letter-spacing: 1px;
+	border: 1px solid #4AC79D ;
+	padding: 5px 15px;
+	outline: none !important;
+	cursor: pointer;
+}
+.site-main .createBtn3{
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	border: 1px solid #363555;
+    background-color: #363555 !important;
+    letter-spacing: 1px;
+	padding: 7px 15px;
+	outline: none !important;
+}
+.site-main .createBtn3:hover{
+	transition: background-color 1s, color 1s;
+
+}
+
+table a{
+	margin-right: 5px !important;
+}

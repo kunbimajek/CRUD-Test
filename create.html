@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Student Resource Management App</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet"  href="css/style.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<div class="container-fluid">
+	  		<a class="navbar-brand" href="index.html"><img src="img/book.png" width="4%"/> SRMS</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+	   	 	<span class="navbar-toggler-icon"></span>
+	 		 </button>
+	  	<div class="collapse navbar-collapse" id="navbar1">
+	    	<ul class="navbar-nav ml-auto">
+	      		<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+	      		<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+	   		 </ul>
+	  	</div>
+	  </div>
+	</nav>
+
+	<main class="site-main">
+		<div class="col-md-9 centered">
+	    	<h3 class="headingText mt-50 mb-30">Create New Student Resource</h3>
+	    	<hr class="mb-30" />
+
+           <form>
+				<div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="firstname"  class="col-form-label">First Name</label>
+				      <input type="name" class="form-control" id="firstname"   placeholder="Student First Name">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="lastname"  class="col-form-label">Last Name</label>
+				      <input type="name" class="form-control" id="lastname" placeholder="Student Last Name">
+					</div>
+				</div>
+				<div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="matricnumber" class="col-form-label">Matric No.</label>
+				      <input type="name" class="form-control" id="matricnumber" placeholder="">
+				      
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="level" class="col-form-label">Level</label>
+				      <select class="form-control" name="level" id="level">
+				      <option value="100Level">100 Level</option>
+				      <option value="200Level">200 Level</option>
+				      <option value="300Level">300 Level</option>
+				      <option value="400Level">400 Level</option>
+				      <option value="500Level">500 Level</option>
+				      </select>
+					</div>
+				</div>
+				<div class="form-row mb-30">
+				    <div class="form-group col-md-6">
+				      <label for="college" class="col-form-label">College</label>
+				      <select class="form-control" name="college" id="college"> 
+				      <option value="COLNAS">COLNAS</option>
+				      <option value="COLMANS">COLMANS</option>
+				      <option value="COLEES">COLEES</option>
+				      </select>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="department" class="col-form-label">Department</label>
+				      <select class="form-control" name="department" id="department">
+				      <option value="Computer Science">Computer Science</option>
+				      <option value="Information Technology">Information Technology</option>
+				      <option value="Electrical Engineering">Electrical Engineering</option>
+				      <option value="Mechanical Engineering">Mechanical Engineering</option>
+				      </select>
+					</div>
+				</div>
+				<div class="form-row">
+				    <div class="form-group ml-md-auto col-md-5">
+				      <button id="submit" class="createBtn2 float-right" href="#">Create</button>
+					</div>
+				</div>
+			</form>		
+
+		</div>
+	</main>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<script>
+		$(document).ready(function(){
+			$("#submit").click(function(){
+				var lastname = $("#lastname").val();
+				var firstname = $("#firstname").val();
+				var level = $("#level").val();
+				var matricnumber = $("#matricnumber").val();
+				var college = $("#college").val();
+				var department = $("#department").val();
+				// Returns successful data submission message when the entered information is stored in database.
+				var dataString = 'surname='+ lastname + '&firstname='+ firstname + '&level='+ level + '&matric_number='+ matricnumber + '&college='+ college+ '&department='+ department;
+				if(lastname==''||firstname==''||level==''||matricnumber=='' ||college=='' ||department=='')
+				{
+					alert("Please Fill All Fields");
+				}
+				else
+				{
+					// AJAX Code To Submit Form.
+					$.ajax({
+						type: "POST",
+						url: "https://damimajek.herokuapp.com/api/create",
+						data: dataString,
+						cache: false,
+						success: function(result){
+							if (confirm('Are you sure you have typed in appropriate information')) {
+							    document.location.href="/";
+							} else {
+							    document.getElementById("new").reset();
+							}
+						}
+					});
+				}
+				return false;
+			});
+		});
+</script>
+
+</body>
+
+</html>

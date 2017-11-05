@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Student Resource Management App</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet"  href="css/style.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<div class="container-fluid">
+	  		<a class="navbar-brand" href="index.html"><img src="img/book.png" width="4%"/> SRMS</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+	   	 	<span class="navbar-toggler-icon"></span>
+	 		 </button>
+	  	<div class="collapse navbar-collapse" id="navbar1">
+	    	<ul class="navbar-nav ml-auto">
+	      		<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+	      		<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+	   		 </ul>
+	  	</div>
+	  </div>
+	</nav>
+
+	<main class="site-main">
+		<div class="col-md-9 centered">
+	    	<h3 class="headingText mt-50 mb-30" id="name"></h3>
+	    	<hr class="mb-30"/>
+				 <div>
+					<h4 class="mb-20">Matric Number - <span class="font-weight-normal" id="matric"></span></h4>
+					<h4 class="mb-20">Level - <span class="font-weight-normal" id="level"></span></h4>
+					<h4 class="mb-20">College - <span class="font-weight-normal" id="college"></span></h4>
+					<h4 class="mb-20">Department - <span class="font-weight-normal" id="dpt"></span></h4>	
+				</div>
+
+	</main>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<script>
+			function findGetParameter(parameterName) {
+			    var result = null,
+			        tmp = [];
+			    location.search
+			        .substr(1)
+			        .split("&")
+			        .forEach(function (item) {
+			          tmp = item.split("=");
+			          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+			        });
+			    return result;
+			}
+			function createNode(element) {
+			      return document.createElement(element);
+			  }
+			  function append(parent, el) {
+			    return parent.appendChild(el);
+			  }
+			  const resources = document.getElementById('resources');
+			  const url = 'https://damimajek.herokuapp.com/api/get/'+findGetParameter('id');
+			  fetch(url)
+			  .then((resp) => resp.json())
+			  .then(function(results) {
+			    let resource = results.student;
+			    document.getElementById('name').innerHTML = resource.firstname + " "+resource.surname;
+			    document.getElementById('matric').innerHTML = resource.matric_number;
+			    document.getElementById('level').innerHTML = resource.level;
+			    document.getElementById('college').innerHTML = resource.college;
+			    document.getElementById('dpt').innerHTML = resource.department;
+			   });
+		</script>
+
+</body>
+</html>
+

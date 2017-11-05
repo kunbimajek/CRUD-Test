@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Student Resource Management App</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet"  href="css/style.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<div class="container-fluid">
+	  		<a class="navbar-brand" href="index.html"><img src="img/book.png" width="4%"/> SRMS</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+	   	 	<span class="navbar-toggler-icon"></span>
+	 		 </button>
+	  	<div class="collapse navbar-collapse" id="navbar1">
+	    	<ul class="navbar-nav ml-auto">
+	      		<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+	      		<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+	   		 </ul>
+	  	</div>
+	  </div>
+	</nav>
+
+	<main class="site-main">
+		<div class="col-md-9 centered">
+
+
+			<div class="row">
+				<div class="col-sm-6">
+	    			<h3 class="headingText mt-50 mb-30">View Student Resource</h3>
+	    	</div>
+	   		<div class="col-sm-6">
+	    		<a href="create.html" class="float-right mt-50 mb-30 createBtn3">Create New Student Resource</a>
+	   		</div>
+		</div>
+	    	
+	    <table class="table table-bordered table-hover table-striped">
+		    <thead>
+		        <tr>
+		            <th>Student Name</th>
+		            <th>Matric No.</th>
+		            <th style="width: 200px;"></th>
+		        </tr>
+		    </thead>
+
+		     <tbody id="resources">
+		    </tbody>
+		</table>
+           
+
+		</div>
+	</main>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+		<script> 
+			function createNode(element) {
+			      return document.createElement(element);
+			  }
+			  function append(parent, el) {
+			    return parent.appendChild(el);
+			  }
+			  const resources = document.getElementById('resources');
+			  const url = 'https://damimajek.herokuapp.com/api/get';
+			  fetch(url)
+			  .then((resp) => resp.json())
+			  .then(function(results) {
+			    let resourcess = results.student;
+			  	console.log(resourcess);
+			    return resourcess.map(function(resource) {
+			      let row = createNode('tr'),
+			          name = createNode('td'),
+			          matric_num = createNode('td'),
+			          links = createNode('td'),
+			          view = createNode('a'),
+			          edit = createNode('a');
+			          del = createNode ('a');
+
+					view.className = 'btn btn-sm btn-success';
+					edit.className = 'btn btn-sm btn-primary';
+					
+					view.href = 'viewInfo.html?id='+ resource._id;
+		            edit.href = 'edit.html?id='+ resource._id;
+
+			      name.innerHTML = resource.firstname + " "+resource.surname;
+			      matric_num.innerHTML = resource.matric_number;
+
+			      edit.innerHTML = "Edit"
+			      view.innerHTML = "View"
+
+			      append(row, name);
+			      append(row, matric_num);
+			      append(row, links);
+			      append(links, view);
+			      append(links, edit);
+			      append(resources, row);
+			    })
+			 });
+
+
+		</script>
+
+</body>
+</html>
