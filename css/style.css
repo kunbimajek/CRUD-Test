@@ -15,7 +15,7 @@
 
 
 .navbar{
-background-color: #181d1d !important;	
+background-color: #111212 !important;	
 }
 
 .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > 
@@ -29,7 +29,7 @@ background-color: #181d1d !important;
 }
 
 .jumbotron{
-	background: #181d1d !important;
+	background: #111212!important;
 	background-size: cover;
 	background-position: center;
 	height: 100%;
