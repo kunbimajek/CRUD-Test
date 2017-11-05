@@ -15,7 +15,7 @@
 
 
 .navbar{
-background-color: #172121 !important;	
+background-color: #181d1d !important;	
 }
 
 .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > 
@@ -29,7 +29,7 @@ background-color: #172121 !important;
 }
 
 .jumbotron{
-	background: #172121 !important;
+	background: #181d1d !important;
 	background-size: cover;
 	background-position: center;
 	height: 100%;
@@ -67,14 +67,13 @@ background-color: #172121 !important;
     background-color: #363555 !important;
     letter-spacing: 1px;
 	border: 1px solid #363555 ;
-	padding: 12px 23px;
+	padding: 12px 26px;
 	outline: none !important;
 }
 
 .site-main .createBtn2{
 	color: white;
 	text-decoration: none;
-	font-size: 14px;
     background-color: #4AC79D !important;
     background: -webkit-linear-gradient(top, #4AC79D 0%, #29B088 100%);
     background: -moz-linear-gradient(top, #4AC79D 0%, #29B088 100%);
@@ -89,7 +88,6 @@ background-color: #172121 !important;
 .site-main .createBtn3{
 	color: white;
 	text-decoration: none;
-	font-size: 14px;
 	border: 1px solid #363555;
     background-color: #363555 !important;
     letter-spacing: 1px;
@@ -103,4 +101,53 @@ background-color: #172121 !important;
 
 table a{
 	margin-right: 5px !important;
+	margin-bottom: 5px !important;
+}
+
+
+
+
+
+@media screen and (max-width: 576px){
+	.jumbotron .h1{
+		padding-top: 80px;
+	}
+	.navbar-dark .navbar-brand {
+		padding-left: 5px;
+		padding-top: 10px;
+	}.navbar-dark .navbar-brand img{ width: 10%;}
+	.jumbotron .sub-text {
+		padding-bottom: 40px;
+	}
+	.jumbotron .createBtn{
+		float: none !important;
+		margin-left: 15%;
+	}
+	.jumbotron .viewBtn{
+		margin-left: 15%;
+	}
+	.jumbotron .create{
+		margin-bottom: 40px;
+	}
+	.site-main .heading{
+		margin-bottom: 25px;
+	}
+	.site-main .btn-left{
+		float: left !important;
+	}
+	.site-main .del{
+		margin-bottom: 20px;
+	}
+}
+@media screen and (max-width: 320px){
+	.jumbotron .h1{
+		padding-top: 50px;
+	}
+	.jumbotron .createBtn{
+		float: none !important;
+		margin-left: 6px;
+	}
+	.jumbotron .viewBtn{
+		margin-left: 6px;
+	}
 }
